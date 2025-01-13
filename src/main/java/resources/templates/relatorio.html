@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Vendas</title>
+</head>
+<body>
+    <h2>Relatório de Vendas</h2>
+    <ul>
+        <th:block th:if="${vendas.isEmpty()}">
+            <li>Nenhuma venda registrada.</li>
+        </th:block>
+        <th:block th:each="venda : ${vendas}">
+            <li><strong>Cliente:</strong> <span th:text="${venda.cliente}"></span></li>
+            <li><strong>Descrição:</strong> <span th:text="${venda.descricaoServico}"></span></li>
+            <li><strong>Valor Total:</strong> <span th:text="${venda.valorTotal}"></span></li>
+            <hr>
+        </th:block>
+    </ul>
+</body>
+</html>

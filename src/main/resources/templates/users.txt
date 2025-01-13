@@ -1,0 +1,4 @@
+administrador, administrador, administrador,
+funcionário, funcionário, funcionario,
+vendedor, vendedor, vendedor,
+fabian, 123456, administrador

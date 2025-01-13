@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Construction Management - Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-panel {
+            background-color: #800000;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .right-panel {
+            background-color: #f4f4f4;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50%;
+            max-width: 300px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            max-width: 300px;
+        }
+
+        .login-form input {
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .login-button {
+            background-color: #ffc107;
+            border: none;
+            color: black;
+            font-size: 1.2rem;
+            padding: 15px 40px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: #ffb300;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Left side -->
+        <div class="left-panel">
+            <h1 class="title">Planning your business</h1>
+            <form class="login-form" id="loginForm">
+                <input type="text" id="username" placeholder="Login" required>
+                <input type="password" id="password" placeholder="Senha" required>
+                <button type="submit" class="login-button">Entrar</button>
+            </form>
+        </div>
+
+        <!-- Right side -->
+        <div class="right-panel">
+            <img src="logo.png" alt="Easy Construction Management Logo" class="logo">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Simulando login e redirecionamento por cargo
+            const username = document.getElementById("username").value.toLowerCase();
+            const password = document.getElementById("password").value;
+
+            if (username === "vendedor" && password === "senha123") {
+                window.location.href = "vendedor.html";
+            } else if (username === "funcionario" && password === "senha123") {
+                window.location.href = "funcionario.html";
+            } else if (username === "administrador" && password === "senha123") {
+                window.location.href = "administrador.html";
+            } else {
+                alert("Credenciais inválidas!");
+            }
+        });
+    </script>
+</body>
+
+</html>

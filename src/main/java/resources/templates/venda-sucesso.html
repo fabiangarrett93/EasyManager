@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venda Registrada</title>
+</head>
+<body>
+    <h2>Venda Registrada com Sucesso!</h2>
+    <p><strong>Cliente:</strong> ${venda.cliente}</p>
+    <p><strong>Descrição:</strong> ${venda.descricaoServico}</p>
+    <p><strong>Valor Total:</strong> ${venda.valorTotal}</p>
+    <p><strong>Materiais:</strong></p>
+    <ul>
+        <li><strong>Material:</strong> ${venda.materiais[0].nome}</li>
+        <li><strong>Quantidade:</strong> ${venda.materiais[0].quantidade}</li>
+        <li><strong>Preço Unitário:</strong> ${venda.materiais[0].precoUnitario}</li>
+    </ul>
+    <a href="/relatorio">Ver Relatório</a>
+</body>
+</html>

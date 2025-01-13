@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #800000;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 10px 0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sidebar a:hover {
+            background-color: #a30000;
+            padding-left: 10px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 200px;
+            height: 200px;
+            border: 1px solid #ddd;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Menu</h2>
+        <a href="#">Vendedor</a>
+        <a href="#">Funcionário</a>
+        <a href="#">Administrador</a>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/5352/5352358.png" alt="Lucro">
+            <h3>Lucro</h3>
+        </div>
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/1422/1422449.png" alt="Custos">
+            <h3>Custos</h3>
+        </div>
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/4778/4778417.png" alt="Estatísticas">
+            <h3>Estatísticas</h3>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

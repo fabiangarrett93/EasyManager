@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #800000;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px;
+}
+
+.menu h3 {
+    font-size: 1.5rem;
+    border: 1px solid #800000;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.menu h3:hover {
+    background-color: #ffb3b3;
+    cursor: pointer;
+}

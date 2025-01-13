@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Construction Management - Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-panel {
+            background-color: #800000;
+            color: white;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .right-panel {
+            background-color: #f4f4f4;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50%;
+            max-width: 300px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            max-width: 300px;
+        }
+
+        .login-form input {
+            padding: 15px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .login-button {
+            background-color: #ffc107;
+            border: none;
+            color: black;
+            font-size: 1.2rem;
+            padding: 15px 40px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background-color: #ffb300;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <!-- Left side -->
+    <div class="left-panel">
+        <h1 class="title">Control your business</h1>
+        <form class="login-form" id="loginForm">
+            <input type="text" id="username" placeholder="Login" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button type="submit" class="login-button">Entrar</button>
+            <p id="errorMessage" class="error-message" style="display: none;">Credenciais inválidas!</p>
+        </form>
+    </div>
+
+    <!-- Right side -->
+    <div class="right-panel">
+        <img src="fulllogo.png" alt="Easy Construction Management Logo" class="logo">
+    </div>
+</div>
+
+<!-- Script para enviar a requisição ao backend -->
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const errorMessage = document.getElementById("errorMessage");
+
+        // Faz uma requisição POST ao endpoint "/api/login"
+        fetch("/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    const userType = data.userType;
+                    window.location.href = `${userType}.html`;
+                } else {
+                    errorMessage.textContent = data.message;
+                    errorMessage.style.display = "block";
+                }
+            })
+            .catch(error => {
+                console.error("Erro:", error);
+                errorMessage.textContent = "Erro ao se conectar ao servidor!";
+                errorMessage.style.display = "block";
+            });
+    });
+</script>
+</body>
+
+</html>
