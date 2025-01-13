@@ -1,4 +1,4 @@
-package com.easycm.easymanager;
+package com.easycm.easymanager.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
